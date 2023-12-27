@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин Чая и Кофе</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Пользовательские стили -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<h1>Добро пожаловать в наш магазин чая и кофе!</h1>
+
+<--Добавление Навигационной Панели -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Магазин Чая и Кофе</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Главная <span class="sr-only">(текущая)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Чай</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Кофе</a>
+            </li>
+            <!-- Можно добавить дополнительные пункты меню здесь -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row" id="categories">
+        <div class="col">
+            <h2>Чай</h2>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="path_to_image" alt="Название товара">
+                <div class="card-body">
+                    <h5 class="card-title">Название товара</h5>
+                    <p class="card-text">Описание товара.</p>
+                    <a href="#" class="btn btn-primary">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h2>Кофе</h2>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="path_to_image" alt="Название товара">
+                <div class="card-body">
+                    <h5 class="card-title">Название товара</h5>
+                    <p class="card-text">Описание товара.</p>
+                    <a href="#" class="btn btn-primary">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery и Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+<! -- Подключение Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- jQuery (необходим для JavaScript плагинов Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<!-- Popper.js (необходим для поповеров и всплывающих подсказок Bootstrap) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Ваш пользовательский файл script.js -->
+<script src="js/script.js"></script>
+
+
+<!--Скрипт для получения данных через Ajax-->
+<script type="text/javascript">
+    $(document).ready(function(){
+            $.ajax({
+                type: 'GET',
+                url: "http://php-project.loc/api/categories",
+                success:function(data){
+                    $("#categories").append("<div class=\"col\">\n" +
+                        "            <h2>Чай</h2>\n" +
+                        "            <div class=\"card\" style=\"width: 18rem;\">\n" +
+                        "                <img class=\"card-img-top\" src=\"path_to_image\" alt=\"Название товара\">\n" +
+                        "                <div class=\"card-body\">\n" +
+                        "                    <h5 class=\"card-title\">Название товара</h5>\n" +
+                        "                    <p class=\"card-text\">Описание товара.</p>\n" +
+                        "                    <a href=\"#\" class=\"btn btn-primary\">Добавить в корзину</a>\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "        </div>");
+                    console.log(data);
+                    // alert(data);
+                }
+            });
+            return false;
+    });
+</script>
+
+</body>
+</html>
